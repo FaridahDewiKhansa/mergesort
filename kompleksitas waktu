@@ -1,0 +1,40 @@
+Faridah Dewi Khansa (1177050000)
+Zanuar Ekaputra Rusán (1177050123)
+
+Tugas Strategi Algoritma
+Pseudo Code Algoritma Merge Sort
+
+DEKLARASI:
+
+A, p, r : integer
+n1, n2 : integer
+q : integer array
+
+PROCEDURE MERGESORT(A, p, r) 
+
+IF p < r // Check for base case 
+	THEN q = FLOOR [(p + r)/2]	// Divide step. 
+		MERGESORT(A, p, q) // Conquer step. 
+		MERGESORT(A, q + 1, r) // Conquer step. 
+		MERGE(A, p, q, r) // Conquer step. 
+
+PROCEDURE MERGE(A, p, q, r) 
+
+n1 ← q − p + 1
+n2 ← r − q
+Create arrays L[1 . . n1 + 1] and R[1 . . n2 + 1] 
+FOR i ← 1 TO n1
+	DO L[i] ← A[p + i − 1]
+FOR j ← 1 TO n2
+	DO R[j] ← A[q + j]
+L[n1 + 1] ← ∞
+R[n2 + 1] ← ∞
+i ← 1
+j ← 1
+FOR k ← p TO r
+	DO IF L[i] ≤ R[j]
+		THEN A[k] ← L[i]
+			i ← i + 1
+		ELSE A[k] ← R[j]
+			j ← j + 1
+
